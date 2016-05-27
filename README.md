@@ -41,3 +41,4 @@ hubot>> <whatever normal response>
 ```
 
 [npm-url]: https://npmjs.org/package/hubot-rocketchat-ignore-direct
+[npm-image]: http://img.shields.io/npm/v/hubot-rocketchat-ignore-direct.svg?style=flat
