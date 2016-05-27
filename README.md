@@ -1,5 +1,5 @@
 # hubot-rocketchat-ignore-direct
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status][coveralls-image]][coveralls-url]
+[![NPM version][npm-image]][npm-url] 
 
 Middleware to prevent hubot listeners from responding to direct messages, for any bot that should only respond in channels (not DMs)
 
