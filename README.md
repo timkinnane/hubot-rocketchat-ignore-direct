@@ -1,5 +1,5 @@
 # hubot-rocketchat-ignore-direct
-[![NPM version][npm-image]][npm-url] 
+[![NPM version][npm-image]][npm-url]
 
 Middleware to prevent hubot listeners from responding to direct messages, for any bot that should only respond in channels (not DMs)
 
@@ -41,10 +41,3 @@ hubot>> <whatever normal response>
 ```
 
 [npm-url]: https://npmjs.org/package/hubot-rocketchat-ignore-direct
-[npm-image]: http://img.shields.io/npm/v/hubot-rocketchat-ignore-direct.svg?style=flat
-[travis-url]: https://travis-ci.org/Tim Kinnane/hubot-rocketchat-ignore-direct
-[travis-image]: http://img.shields.io/travis/Tim Kinnane/hubot-rocketchat-ignore-direct/master.svg?style=flat
-[daviddm-url]: https://david-dm.org/Tim Kinnane/hubot-rocketchat-ignore-direct.svg?theme=shields.io
-[daviddm-image]: http://img.shields.io/david/Tim Kinnane/hubot-rocketchat-ignore-direct.svg?style=flat
-[coveralls-url]: https://coveralls.io/r/Tim Kinnane/hubot-rocketchat-ignore-direct
-[coveralls-image]: http://img.shields.io/coveralls/Tim Kinnane/hubot-rocketchat-ignore-direct/master.svg?style=flat
