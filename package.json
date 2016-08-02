@@ -1,7 +1,7 @@
 {
   "name": "hubot-rocketchat-ignore-direct",
   "description": "Middleware to prevent hubot listeners from responding to direct messages.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Tim Kinnane <tim@nestedcode.com>",
   "license": "MIT",
   "keywords": [
