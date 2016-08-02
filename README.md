@@ -1,14 +1,12 @@
 # hubot-rocketchat-ignore-direct
 [![NPM version][npm-image]][npm-url]
 
-Middleware to prevent hubot listeners from responding to direct messages for any bot that should only respond in channels.
+Middleware to respond to DM's with canned text, preventing further listeners from responding to direct messages (for bots that should only respond in channels).
 
-Intended to allow a basic form of authorization for bot features.
+This is different to the default option of setting `RESPOND_TO_DM=false` because it allows the bot to respond, improving the experience by not stone-walling users.
 
 e.g. Allow specific groups of users access to a bot's commands, add it to a channel only they can access.
-It will ignore everyone else but can still message them one-way.
-
-NB: Only works with Rocketchat bots using the hubot-rocketchat adapter.
+It will ignore everyone else but can still message them one-way and provide static information on how to interact in channels.
 
 See [`src/rocketchat-ignore-direct.coffee`](src/rocketchat-ignore-direct.coffee) for full documentation.
 
