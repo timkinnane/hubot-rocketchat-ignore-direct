@@ -8,9 +8,8 @@
 #   N/A middleware only
 #
 # Notes:
-#   Set IGNORE_RESPONSE to "" if you want cold silence ignores
+#   Set empty response if you want cold silence ignores: `export IGNORE_RESPONSE=""`
 #   Compares the room ID of each message with the direct room ID of the user
-#   It will ignore by default if there's an error getting the direct room ID back from rocketchat
 #
 # Author:
 #   Tim Kinnane @ 4thParty
@@ -21,24 +20,19 @@ ignoreResponse = IGNORE_RESPONSE or "I'm sorry but I'm configured to ignore dire
 
 module.exports = (robot) ->
 
+  silentIgnore = ignoreResponse is ""
+  robot.logger.info "Ignore DMs behaviour is running, will respond with:"
+  robot.logger.info "\"#{ unless silentIgnore then ignoreResponse else 'silence' }\""
+
   # check context before allowing any interaction to proceed
   robot.receiveMiddleware (context, next, done) ->
     roomID = context.response.message.room
-    userName = context.response.message.user.name
-    robot.logger.info "Ignore-direct middleware evoked in #{ roomID } by #{ userName }"
+    userID = context.response.message.user.id
+    isDM = roomID.indexOf(userID) > -1
 
-    getDirectMessageRoomId_promise = robot.adapter.chatdriver.getDirectMessageRoomId userName
-    getDirectMessageRoomId_promise.then (result) ->
-      directID = result.rid or roomID # fail-safe default assume direct if request didn't return direct ID
-      if roomID is directID
-        robot.logger.info "Direct message from #{ userName } ignored"
-        unless ignoreResponse is ""
-          context.response.reply ignoreResponse
-        done()
-      else
-        next(done)
-
-    , (error) ->
-      robot.logger.error "Couldn't get direct message room for #{ user }"
-      context.response.message.finish() # Don't process this message further.
-      done()
+    if isDM
+      unless silentIgnore
+        context.response.reply ignoreResponse
+      done() # Don't process further middleware.
+    else
+      next(done) # On to the next one
